@@ -1,0 +1,61 @@
+#include<iostream>
+#include<typeinfo>
+using namespace std;
+class Emp{
+	int id;string name;
+	protected:double salary;
+	public:Emp(){
+		
+	}
+	void getSalary()const{
+(const_cast<Emp*>(this))->salary=salary+1000;
+	}
+virtual	void calSalary(){
+	cout<<"salary of emp=25000"<<endl;
+}
+};
+class Manager:public Emp{
+	public:void managerIncentives(){
+		cout<<"manager incentives "<<endl;
+	}
+		void calSalary(){
+	cout<<"salary of manager=salary+15000"<<endl;
+}
+};
+
+class Admin:public Emp{
+	
+	public:void adminTask(){
+		cout<<"Admin Task "<<endl;
+	}
+		void calSalary(){
+	cout<<"salary of Admin salary+5000"<<endl;
+}
+};
+int main(){
+	
+	Emp *arr[3];
+	Emp emp;Manager mgr;Admin admin;
+	arr[0]=&emp;
+	arr[1]=&mgr;
+	arr[2]=&admin;
+	for(int i=0;i<3;i++){
+		arr[i]->calSalary();
+		if(typeid(*arr[i])==typeid(Manager)){
+			cout<<"----manager----"<<endl;
+			Manager *mgrObj=dynamic_cast<Manager*>(arr[i]);//down cast
+			mgrObj->managerIncentives();
+		}
+		else if(typeid(*arr[i])==typeid(Admin)){
+			
+			Admin *ad=dynamic_cast<Admin*>(arr[i]);
+			ad->adminTask();
+		}
+	}
+	
+	
+	
+	
+	
+	return 0;
+}

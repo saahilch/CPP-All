@@ -1,0 +1,21 @@
+//Structure Binding Demo
+#include <bits/stdc++.h>
+using namespace std;
+struct Point
+{
+	int x;
+	int y;
+};
+
+// Driver code
+int main( )
+{       
+      Point p = { 1,2 };	
+	// Structure binding
+	auto[ x_coord, y_coord ] = p;
+	auto[no1,no2]=p;//no1=p.x,no2=p.y	
+	cout << "X Coordinate : " << x_coord << endl;
+	cout << "Y Coordinate : " << y_coord << endl;
+	
+	return 0;
+}

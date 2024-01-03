@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+class A{
+	
+	public:void PublicFunction()
+	{
+		cout<<"pub  from A"<<endl;
+	}
+	private:void PrivateFunction()
+	{
+		cout<<"pri  from A"<<endl;
+	}
+	protected:void ProtectedFunction()
+	{
+		cout<<"pro  from A"<<endl;
+	}
+};
+class B:public A{
+	
+	public:void Test()
+	{
+		
+	}
+	
+	
+};
+
+int main(){
+	
+	B b;
+	b.PublicFunction();//error for private inheritance and protected
+	return 0;
+}

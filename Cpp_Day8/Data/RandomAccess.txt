@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+   string myline;
+   ifstream ifs("william.txt", ios::in);
+
+   cout<<"The current position of the file pointer is "<<ifs.tellg();
+
+   cout<<"\n\nThe complete content of the file is:\n";
+   while(getline(ifs, myline))
+   {
+      cout<<myline;
+      cout<<"\n";
+   }
+
+   cout<<"\nNow the position of the file pointer is "<<ifs.tellg();
+
+   ifs.clear();
+   ifs.seekg(2);
+   cout<<"\n\nNow the position of the file pointer is "<<ifs.tellg();
+
+   cout<<"\n\nThe content of the file after skipping the first "<<ifs.tellg()<<" characters is:\n";
+   while(getline(ifs, myline))
+   {
+      cout<<myline;
+      cout<<"\n";
+   }
+
+   ifs.close();
+   cout<<endl;
+
+   return 0;
+}

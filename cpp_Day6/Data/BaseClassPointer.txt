@@ -1,0 +1,12 @@
+base class can hold ref of child class
+compile datatype:base class
+run time data type :child
+
+
+to call child class specific method
+parent class object must be converted into child class
+this is forcefully  downcasting
+use typeid:to identify data type at runtime(execution)
+
+and use dynamic_cast<> for converting base class object into derived class obj
+

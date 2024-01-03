@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a,b,c;
+	try
+	{
+	cout<<" a b"<<endl;
+	cin>>a>>b;
+	if(b<0)
+	throw " Error";
+	
+	if(b==0)
+	throw 90;
+	
+	c=a/b;
+	cout<<"Div:"<<c<<endl;	
+    
+	}
+	catch(int a){
+	cout<<"----error---"<<endl;
+	}
+	catch(const char *str){
+	cout<<"Negative number  "<<str<<endl;
+	}
+	catch(...)
+	{
+	cout<<"---unknown---"<<endl;
+	}	
+}

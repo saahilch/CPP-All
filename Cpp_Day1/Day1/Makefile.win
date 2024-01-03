@@ -1,0 +1,49 @@
+# Project: Basic_CPP
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = FirstDemo.o DataType_Size.o Basic_Operation.o OpratorsDemo.o SwitchDemo.o ForDemo.o PrimeDemo.o WhileDemo.o
+LINKOBJ  = FirstDemo.o DataType_Size.o Basic_Operation.o OpratorsDemo.o SwitchDemo.o ForDemo.o PrimeDemo.o WhileDemo.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Basic_CPP.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+FirstDemo.o: FirstDemo.cpp
+	$(CPP) -c FirstDemo.cpp -o FirstDemo.o $(CXXFLAGS)
+
+DataType_Size.o: DataType_Size.cpp
+	$(CPP) -c DataType_Size.cpp -o DataType_Size.o $(CXXFLAGS)
+
+Basic_Operation.o: Basic_Operation.cpp
+	$(CPP) -c Basic_Operation.cpp -o Basic_Operation.o $(CXXFLAGS)
+
+OpratorsDemo.o: OpratorsDemo.cpp
+	$(CPP) -c OpratorsDemo.cpp -o OpratorsDemo.o $(CXXFLAGS)
+
+SwitchDemo.o: SwitchDemo.cpp
+	$(CPP) -c SwitchDemo.cpp -o SwitchDemo.o $(CXXFLAGS)
+
+ForDemo.o: ForDemo.cpp
+	$(CPP) -c ForDemo.cpp -o ForDemo.o $(CXXFLAGS)
+
+PrimeDemo.o: PrimeDemo.cpp
+	$(CPP) -c PrimeDemo.cpp -o PrimeDemo.o $(CXXFLAGS)
+
+WhileDemo.o: WhileDemo.cpp
+	$(CPP) -c WhileDemo.cpp -o WhileDemo.o $(CXXFLAGS)

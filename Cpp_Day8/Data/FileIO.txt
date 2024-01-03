@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+int main1() {
+	
+	//fstream fs;
+	//fs.open("")
+	//write data
+/*	fstream my_file;
+	my_file.open("my_file.txt", ios::out);
+	if (!my_file) {
+		cout << "File not created!";
+	}
+	else {
+		cout << "File created successfully!";
+		my_file << "this is demo of file";
+		my_file.close();
+	}*/
+	
+	//read data from file
+
+
+/*	ofstream fout;
+ 
+    string line;
+ 
+    // by default ios::out mode, automatically deletes
+    // the content of file. To append the content, open in ios:app
+    // fout.open("sample.txt", ios::app)
+    fout.open("my_file.txt");
+ 
+    // Execute a loop If file successfully opened
+    while (fout) { 
+        // Read a Line from standard input
+        getline(cin, line);
+ 
+        // Press -1 to exit
+        if (line == "-1")
+            break;
+ 
+        // Write line in file
+        fout << line << endl;
+    }
+ 
+    // Close the File
+    fout.close();
+ */
+ 
+ /*ifstream fin;
+ string line;
+    // by default open mode = ios::in mode
+    fin.open("my_file.txt");
+ 
+    // Execute a loop until EOF (End of File)
+    while (getline(fin, line)) {
+       
+        // Print line (read from file) in Console
+        cout << line << endl;
+    }
+ 
+    // Close the file
+    fin.close();*/
+ 
+	return 0;
+}

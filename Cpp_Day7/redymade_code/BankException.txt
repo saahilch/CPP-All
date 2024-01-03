@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+class BankException:public std::exception{
+	
+	public:virtual const char* what() const throw(){
+		
+		return" Bank Exception";
+	}
+};
+class Account{
+	int bal;
+	public:Account(int a)
+	{
+		this->bal=a;
+	}
+	void withdraw(int amt) {
+		BankException bk;
+		try{	
+		if(amt>bal)
+		throw  bk;
+		else
+		bal=bal-amt;
+		
+		cout<<"Bal="<<bal<<endl;
+	}
+	catch(BankException &bk)
+	{
+		throw bk;
+	}
+	}
+};
+
+--------------------------------------------------------------
+#include<iostream>
+#include "Bank.h"
+
+using namespace std;
+
+int main()
+{
+	int a,b,c;
+	Account act(3000);
+	try
+	{
+	act.withdraw(5000);
+	cout<<" a b"<<endl;
+	cin>>a>>b;
+	if(b<0)
+	throw " Error";
+	
+	if(b==0)
+	throw 90;
+	
+	c=a/b;
+	cout<<"Div:"<<c<<endl;	
+    
+	}
+catch(int a){
+	cout<<"----error---"<<endl;
+}
+catch(const char *str){
+	cout<<"Negative number  "<<str<<endl;
+}
+catch(BankException &bk){
+	cout<<"Bank Exception:"<<bk.what()<<endl;
+}
+catch(...)
+{
+	cout<<"---unknown---"<<endl;
+	}	
+}

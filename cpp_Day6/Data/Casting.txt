@@ -1,0 +1,62 @@
+#include<iostream>
+#include<typeinfo>
+using namespace std;
+class TestCast{
+	private :int id;
+	public:TestCast(int i){
+		this->id=i;
+	} 
+	void test()const{
+	//id=100;
+	(const_cast<TestCast *>(this))->id=101;	
+	}
+	int getId(){
+		return id;
+	}
+	void show(int *ptr){
+		cout<<"Changed:"<<(*ptr+100)<<endl;
+	}
+};
+int main(){
+int a=10;
+	float f=90.909;
+	//the static_cast operator is used to perform type conversions between related data types
+	cout<<"float:"<<f<<"   int:"<<a<<endl;
+	
+	//convert float into int
+	int b=f;
+	cout<<"float:"<<b<<endl;;
+	
+	//using static cast
+	int c=static_cast<int>(f);
+	cout<<"casted int:"<<c<<endl;
+	
+	
+	//const cast:
+	// const_cast is a type of casting operator used to add or remove the const qualifier from a pointer, reference, or object
+	
+	
+	const int cnst=120;
+	int &y=const_cast<int&>(cnst);
+	cout<<"const:"<<cnst<<"    ref:"<<y<<endl; 
+	y++;
+	
+	cout<<"const:"<<cnst<<"    ref:"<<y<<endl; 
+	//const cast:const_cast can be used to change non-const class members inside a const member         function.
+	TestCast ts(2);
+	cout<<"id:"<<ts.getId()<<endl;
+	
+	ts.test();
+	cout<<"id:"<<ts.getId()<<endl;
+		
+	//const cast:const_cast can be used to pass const data to a function that doesn’t receive const.
+
+        int fix=450;
+        const int *ptr1=&fix;
+        int *ptr2=const_cast<int *>(ptr1);
+	ts.show(ptr2);
+	cout<<"const ptr2:"<<*ptr2;
+
+
+
+}

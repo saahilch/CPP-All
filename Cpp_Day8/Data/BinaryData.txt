@@ -1,0 +1,32 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+class Product{
+	int id;
+	char name[];
+	
+public :void addprd(){
+	
+	cout<<"id  name "<<endl;
+        cin>>id>>name;	
+	
+	fstream fout("product.dat",ios::binary|ios::out);
+	
+	fout.write((char*)this,sizeof(Product));
+	cout<<"added...."<<endl;
+}	
+void display(){
+	ifstream fin("product.dat",ios::binary|ios::in);
+	fin.read((char*)this,sizeof(Product));
+
+
+}
+};
+int main(){
+	cout<<"1: add prd 2:display prd 3:modify 4:exit"<<endl;
+	Product p1;
+	p1.addprd();
+	p1.display();
+	
+	
+}

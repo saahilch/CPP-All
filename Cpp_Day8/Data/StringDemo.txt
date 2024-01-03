@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    // Create a string
+    std::string text = "Hello, World!";
+
+    // Length of the string
+    std::cout << "Length: " << text.length() << std::endl;
+
+    // Accessing individual characters
+    std::cout << "Character at index 7: " << text[7] << std::endl;
+
+    // Substring
+    std::string substring = text.substr(7, 5);
+    std::cout << "Substring: " << substring << std::endl;
+
+    // Appending to the string
+    text += " How are you?";
+    std::cout << "Appended String: " << text << std::endl;
+
+    // Finding a substring
+    size_t found = text.find("are");
+    if (found != std::string::npos) {
+        std::cout << "Found 'are' at index: " << found << std::endl;
+    } else {
+        std::cout << "'are' not found." << std::endl;
+    }
+
+    // Replace a substring
+    text.replace(found, 3, "were");
+    std::cout << "Replaced String: " << text << std::endl;
+
+    // Erase part of the string
+    text.erase(5, 6);
+    std::cout << "Erased String: " << text << std::endl;
+
+    // Comparing strings
+    std::string other = "Hello, World! How were you?";
+    if (text == other) {
+        std::cout << "Strings are equal." << std::endl;
+    } else {
+        std::cout << "Strings are not equal." << std::endl;
+    }
+
+    return 0;
+}

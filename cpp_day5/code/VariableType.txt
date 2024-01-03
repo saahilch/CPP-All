@@ -1,0 +1,10 @@
+Type of Variables
+
+instance variables:copy get created per object:data memebrs
+class variable:copy get created per class:static 
+local variable:copy get created per block:block level variable
+
+
+
+//constr is only used for data memeber initialization
+//constr get invoked only once when object get created

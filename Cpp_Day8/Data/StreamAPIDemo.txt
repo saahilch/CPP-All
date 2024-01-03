@@ -1,0 +1,53 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int choice;
+
+    while (true) {
+        // Display menu
+        cout << "Menu:" << endl;
+        cout << "1. Display an integer" << endl;
+        cout << "2. Display a floating-point number" << endl;
+        cout << "3. Display a string" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int intValue;
+                cout << "Enter an integer: ";
+                cin >> intValue;
+                cout << "Formatted Integer: " << setw(10) << intValue << endl;
+                break;
+            }
+            case 2: {
+                double doubleValue;
+                cout << "Enter a floating-point number: ";
+                cin >> doubleValue;
+                cout << "Formatted Float: " << fixed << setprecision(2) << setw(10) << doubleValue << endl;
+                break;
+            }
+            case 3: {
+                string stringValue;
+                cout << "Enter a string: ";
+                cin.ignore();
+                getline(cin, stringValue);
+                cout << "Formatted String: " << setw(20) << left << stringValue << endl;
+                break;
+            }
+            case 4: {
+                cout << "Exiting the program." << endl;
+                return 0;
+            }
+            default:
+                cout << "Invalid choice. Please enter a valid option." << endl;
+        }
+    }
+
+    return 0;
+}

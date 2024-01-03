@@ -1,0 +1,81 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+using namespace std;
+
+int main1() {
+    vector<int> numbers;
+    int choice;
+
+    do {
+        cout << "Vector Menu:" << endl;
+        cout << "1. Add Element" << endl;
+        cout << "2. Display Elements" << endl;
+        cout << "3. Sum" << endl;
+        cout << "4. Calculate Average" << endl;
+        cout << "5. Quit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int num;
+                cout << "Enter an element to add: ";
+                cin >> num;
+                numbers.push_back(num);
+                cout << "Element added successfully." << endl;
+                break;
+            }
+            case 2: 
+                if (numbers.empty()) {
+                    cout << "Vector is empty." << endl;
+                } else {
+                    cout << "Elements in the vector: ";
+//                    for (int num : numbers) {
+//                        cout << num << " ";
+//                    }
+            vector<int>::iterator it,it1;
+
+			it=numbers.begin();
+			it1=numbers.end();
+			while(it!=it1){
+				cout<<"---"<<*it<<endl;
+				it++;
+			}
+		}
+                break;
+            
+            case 3: {
+            
+                if (numbers.empty()) {
+                    cout << "Vector is empty." << endl;
+                } else {
+                    int sum = accumulate(numbers.begin(), numbers.end(), 0);
+                    cout << "Sum of elements: " << sum << endl;
+                }
+                break;
+            }
+            case 4: {
+                if (numbers.empty()) {
+                    cout << "Vector is empty." << endl;
+                } else {
+                    double average = static_cast<double>(accumulate(numbers.begin(), numbers.end(), 0)) / numbers.size();
+                    cout << "Average of elements: " << average << endl;
+                }
+                break;
+            }
+            case 5: {
+                cout << "Exiting program. Goodbye!" << endl;
+                break;
+            }
+            default: {
+                cout << "Invalid choice. Please try again." << endl;
+                break;
+            }
+        }
+    } while (choice != 5);
+
+  //}
+  return 0;
+}

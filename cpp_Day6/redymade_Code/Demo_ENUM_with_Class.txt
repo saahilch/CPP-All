@@ -1,0 +1,77 @@
+
+#include <iostream>
+using namespace std;
+enum Department
+{
+    ADMIN=1,
+    ACCOUNT=2,
+    MARKETING=3
+};
+class Employee
+{
+    public:
+    int id;
+    char name[20];
+    Department dept;
+    public:
+    void Accept()
+    {
+        int i;
+        cout<<"\n\n\t Enter Id ";
+        cin>>id;
+        cout<<"\n\n\t Enter Name ";
+        cin>>name;
+        cout<<"\n\t1. ADMIN\
+        \n\t2. ACCOUNT\
+        \n\t3. MARKETING\
+        \n\tSelect Department ";
+        cin>>i;
+        switch(i)
+        {
+          case 1:
+          dept=ADMIN;
+          break;
+          case 2:
+          dept=ACCOUNT;
+          break;
+         case 3:
+         dept=MARKETING;
+        }
+    }
+    
+    void Display()
+    {
+        cout<<"\n\n\t Emp Id "<<id;
+        cout<<"\n\t Name "<<name;
+        switch(dept)
+        {
+            case Department::ADMIN:
+            cout<<"\n\t Department : Admin ";
+            break;
+            case Department::ACCOUNT:
+            cout<<"\n\t Department : ACCOUNT ";
+            break;
+            case Department::MARKETING:
+            cout<<"\n\t Department : MARKETING ";
+            break;
+        
+            
+        }
+    }
+    
+};
+
+int main() {
+Employee e1;
+e1.Accept();
+e1.Display();
+    
+      
+      
+      
+       
+ 
+ 
+
+    return 0;
+}

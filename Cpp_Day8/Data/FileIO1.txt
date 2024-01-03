@@ -1,0 +1,9 @@
+File:
+Stream Classes in C++
+A stream is a representation of a computer that performs input/output operations. It can be viewed as either a destination or a source of indefinitely long characters which can be decided by the way they are used. 
+
+fstream in C++ comes with a library that includes methods for dealing with files.
+
+ofstream- This class describes an output stream. It is used to create files and to write data to files.
+ifstream- This class describes an input stream. It's a program that reads data from files and displays it.
+fstream- This class describes a file stream in general. It has ofstream and ifstream capabilities. This means it can create files, write to files, and read data from files.
